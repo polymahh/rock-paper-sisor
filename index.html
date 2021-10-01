@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let computerScore = 0;
+    let playerScore = 0;
+
+    let choices = ["rock","paper","sisor"];
+
+    let playerSelection;
+    let computerSelection;
+
+    round();
+    function round(){
+       computerSelection = choices[Math.floor(Math.random() * choices.length)];
+
+       getSelection();
+    }
+    
+    function getSelection (){
+      playerSelection = prompt('Rock / Paper / sisor ??: ');
+      playerSelection = playerSelection.toLowerCase();
+
+       if(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "sisor"){
+        compare();
+       }else {
+        console.log('try again');
+         getSelection();
+       }
+    
+      }
+  
+
+    function compare (){
+      if (playerSelection === computerSelection) {
+        console.log('its a draw');
+      }else if( (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'sisor') || (playerSelection === 'sisor' && computerSelection === 'rock')){
+        console.log('you lose ,'+ computerSelection +' beats '+ playerSelection );
+        computerScore++;
+      }else {
+        console.log('you Win ,'+ playerSelection +' beats '+ computerSelection );
+        playerScore++;
+      }
+    }
+
+    for (i = 1 ; i <= 5 ; i++){
+      if (i == 5){
+        if(playerScore > computerScore){
+          console.log('horay!! you won the match');
+        }else console.log('ohh no! You lost the match')
+      }else round();
+    }
+  </script>
+</body>
+</html>
