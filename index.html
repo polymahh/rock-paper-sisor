@@ -4,59 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
+<div><h3>Best Out Of Five!</h3></div>
+<div class="score">
+  <div class="myscore">
+    <h3>MyScore:</h3>
+    <span>0</span>
+  </div>
+  <div class= "aiscore">
+    <h3>AiScore:</h3>
+    <span>0</span>
+  </div>
+</div>
+<div class="buttons">
+  <button>Rock</button>
+  <button>Paper</button>
+  <button>Sisor</button>
+</div>
+<div class="choices">
+  <div class="mychoice">
+    <h3>MyChoice:</h3>
+    <span> </span>
+  </div>
+  <div class="aichoice">
+    <h3>AiChoice:</h3>
+    <span> </span>
+  </div>
+</div>
+<div class="results">
+  <div class="result"></div>
+  <div class="finalresult"></div>
+</div>  
   
-  <script>
-    let computerScore = 0;
-    let playerScore = 0;
-
-    let choices = ["rock","paper","sisor"];
-
-    let playerSelection;
-    let computerSelection;
-
-    round();
-    function round(){
-       computerSelection = choices[Math.floor(Math.random() * choices.length)];
-
-       getSelection();
-    }
-    
-    function getSelection (){
-      playerSelection = prompt('Rock / Paper / sisor ??: ');
-      playerSelection = playerSelection.toLowerCase();
-
-       if(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "sisor"){
-        compare();
-       }else {
-        console.log('try again');
-         getSelection();
-       }
-    
-      }
-  
-
-    function compare (){
-      if (playerSelection === computerSelection) {
-        console.log('its a draw');
-      }else if( (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'sisor') || (playerSelection === 'sisor' && computerSelection === 'rock')){
-        console.log('you lose ,'+ computerSelection +' beats '+ playerSelection );
-        computerScore++;
-      }else {
-        console.log('you Win ,'+ playerSelection +' beats '+ computerSelection );
-        playerScore++;
-      }
-    }
-
-    for (i = 1 ; i <= 5 ; i++){
-      if (i == 5){
-        if(playerScore > computerScore){
-          console.log('horay!! you won the match');
-        }else console.log('ohh no! You lost the match')
-      }else round();
-    }
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
