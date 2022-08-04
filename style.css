@@ -1,13 +1,27 @@
 body {
+    background-color: #ffffff;
+}
+
+.container{
+    background-color: #242424;
+    width: 60%;
+    margin: auto;
     padding: 20px ;
     display:flex ;
     flex-direction: column;
-    justify-content:center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    justify-content:space-between;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    gap: 20px;
+    color: #ffffff;
+    min-height: 572px;
+
 }
 div {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
 }
 
 h3 {
@@ -15,26 +29,12 @@ h3 {
     margin: 0 0 10px 0;
 }
 
-.myscore,.aiscore ,.mychoice ,.aichoice {
-    background-color: rgb(221, 221, 221);
+.myscore,.aiscore {
     padding: 20px;
     width: 50%;
-    border-radius: 10px;
-    display: flex;
-    justify-content:first baseline;
-    align-items: center;
-    flex-direction: column;
-    gap : 10px;
     
 }
 
-.score, .choices {
-    display: flex;
-    justify-content: space-around;
-    align-content: stretch;
-    gap: 10px;
-    
-}
 
 .buttons  {
     display: flex;
@@ -45,18 +45,25 @@ h3 {
     gap: 10px;
 
 }
-.buttons button{
-    width: 180px;
-    height: 80px;
+.button{
+    height: 100%;
+}
+.button>img{
+    width: 70px;
+    padding: 10px;
+    /* height: 80px; */
     cursor:pointer;
-    background: none;
-    font-size: 24px;
     border-radius: 5px;
     border-style: none;
-    background-color: rgb(71, 151, 255);
-    color: white;
+    background-color: rgb(255, 255, 255);
 }
 
-.result,.finalresult {
+#your,#ai {
+    width: 70px;
+    padding: 10px;
+    cursor:pointer;
+    border-radius: 5px;
+    border-style: none;
+    filter: invert(1);
     
 }

@@ -1,6 +1,6 @@
 let computerScore = 0;
 let playerScore = 0;
-let counter = 1;
+let counter = 0;
 
 let choices = ["rock","paper","sisor"];
 
@@ -12,39 +12,67 @@ let myScore = document.querySelector('.myscore');
 let aiScore = document.querySelector('.aiscore');
 let myScoreSpan = myScore.childNodes ;
 let aiScoreSpan = aiScore.childNodes;
-let resultTxt = document.querySelector('.result')
+let Mychoice = document.querySelector('#your');
+let Aichoice = document.querySelector('#ai');
+
+let resultTxt = document.querySelector('.result');
+let counterText = document.querySelector('.counter');
 
 
-const buttons = Array.from(document.querySelectorAll('button'));
+const buttons = Array.from(document.querySelectorAll('.button'));
 
 buttons.forEach(function(button){
-    button.addEventListener("click" , function (){
-        playerSelection = button.textContent.toLowerCase();
-        round();
+    button.addEventListener("mouseup" , function (){
+        playerSelection = button.id.toLowerCase();
+        computerSelection = choices[Math.floor(Math.random() * choices.length)];
+        compare();
+
     });
    });
 
 
-function round(){
-    console.log(counter);
-    computerSelection = choices[Math.floor(Math.random() * choices.length)];
-    getSelection();
+function compare (){
+    counter ++;
+    counterText.textContent = `round ${counter}`
+  if (playerSelection == computerSelection) {
+    result = 'its a draw';
+    getSelection ()
+    score();
+  }else if( (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'sisor') || (playerSelection === 'sisor' && computerSelection === 'rock')){
+    result = 'you lose ,'+ computerSelection +' beats '+ playerSelection ;
+    computerScore++;
+    getSelection ()
+    score();
+  }else {
+    result = 'you Win ,'+ playerSelection +' beats '+ computerSelection ;
+    playerScore++;
+    getSelection ()
+    score();
+  }
 }
 
-
-
 function getSelection (){
-    console.log(playerSelection);
-   if(playerSelection === "rock" || playerSelection === "paper" || playerSelection === "sisor"){
-    compare();
-   }else {
-    console.log('try again');
-   }
+    
+    if(playerSelection === "rock" ){
+        Mychoice.src='./rock.png' 
+    }else if(playerSelection === "paper"){
+        Mychoice.src='./paper.png' 
+    }else {
+        Mychoice.src='./sisor.png'
+    }
 
+    if(computerSelection === "rock" ){
+        Aichoice.src='./rock.png' 
+    }else if(computerSelection === "paper"){
+        Aichoice.src='./paper.png' 
+    }else {
+        Aichoice.src='./sisor.png'
+    }
+    
   }
 
 function score (){
-    
+    console.log(myScoreSpan)
     myScoreSpan[3].innerHTML = playerScore;
     aiScoreSpan[3].innerHTML = computerScore;
     resultTxt.textContent = result ;
@@ -54,30 +82,15 @@ function score (){
     
 }
 
-
-function compare (){
-    counter ++;
-  if (playerSelection === computerSelection) {
-    result = 'its a draw';
-  }else if( (playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'sisor') || (playerSelection === 'sisor' && computerSelection === 'rock')){
-    result = 'you lose ,'+ computerSelection +' beats '+ playerSelection ;
-    computerScore++;
-    score();
-  }else {
-    result = 'you Win ,'+ playerSelection +' beats '+ computerSelection ;
-    playerScore++;
-    score();
-  }
-}
-
 function final (){
     if(playerScore > computerScore){
         reset();
-        alert('horay!! you won the match');
+        resultTxt.innerHTML = '<h2>horay!! you won the match</h2>' ;
       
     }else {
         reset();
-        alert('ohh no! You lost the match');
+        resultTxt.innerHTML = '<h2>oh nooo!! you lost the match</h2>' ;
+
     }
     
     

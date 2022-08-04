@@ -8,37 +8,48 @@
   <title>Document</title>
 </head>
 <body>
-<div><h3>Best Out Of Five!</h3></div>
-<div class="score">
-  <div class="myscore">
-    <h3>MyScore:</h3>
-    <span>0</span>
-  </div>
-  <div class= "aiscore">
-    <h3>AiScore:</h3>
-    <span>0</span>
-  </div>
-</div>
-<div class="buttons">
-  <button>Rock</button>
-  <button>Paper</button>
-  <button>Sisor</button>
-</div>
-<div class="choices">
-  <div class="mychoice">
-    <h3>MyChoice:</h3>
-    <span> </span>
-  </div>
-  <div class="aichoice">
-    <h3>AiChoice:</h3>
-    <span> </span>
-  </div>
-</div>
-<div class="results">
-  <div class="result"></div>
-  <div class="finalresult"></div>
-</div>  
-  
-<script src="script.js"></script>
+        
+    <div class="container">   
+
+          <div class="counter">round 1</div>
+          <div class="score">
+              <div class="myscore">
+                <h3>MyScore:</h3>
+                <span>0</span>
+              </div>
+              <div class= "aiscore">
+                <h3>AiScore:</h3>
+                <span>0</span>
+              </div>
+          </div>
+
+          <hr style="width: 80%;">
+          <div class="choices">
+            <div class="mychoice">
+              <img src="" alt="" id="your">
+            </div>
+            <div class="aichoice">
+              <img src="" alt="" id="ai">
+            </div>
+          </div>
+
+          <div class="results">
+            <div class="result"></div>
+            <h2 class="finalresult"></h2>
+          </div> 
+
+        <hr style="width: 80%;">
+        <div class="buttons">
+          <div class="button" id="paper"><img src="./paper.png" alt=""></div>
+          <div class="button" id="rock"><img src="./rock.png" alt=""></div>
+          <div class="button"id="sisor"><img src="./sisor.png" alt=""></div>
+          
+        </div>
+
+        
+        
+         
+    </div>   
+  <script src="script.js"></script>
 </body>
 </html>
